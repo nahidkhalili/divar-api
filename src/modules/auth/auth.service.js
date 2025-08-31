@@ -86,10 +86,7 @@ class AuthService {
     }
     throw new createHttpError.Unauthorized();
   }
-  signToken(
-    payload,
-    expiresIn = new Date().getTime() + 1000 * 60 * 60 * 24 * 30 * 12
-  ) {
+  signToken(payload, expiresIn = "30d") {
     return jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn });
   }
 }
